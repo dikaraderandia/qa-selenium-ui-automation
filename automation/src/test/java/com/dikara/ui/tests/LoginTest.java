@@ -1,6 +1,8 @@
 package com.dikara.ui.tests;
 
 import com.dikara.ui.BaseTestUI;
+import com.dikara.ui.pages.InventoryPage;
+import com.dikara.ui.pages.LoginPage;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -8,13 +10,21 @@ import org.testng.annotations.Test;
 public class LoginTest extends BaseTestUI {
     @Test
     public void loginSuccess(){
-        driver.findElement(By.id("user-name")).sendKeys("standard_user");
-        driver.findElement(By.id("password")).sendKeys("secret_sauce");
+        LoginPage loginPage = new LoginPage(driver);
 
-        driver.findElement(By.id("login-button")).click();
+        loginPage.login("standard_user", "secret_sauce");
 
-        String url = driver.getCurrentUrl();
-        Assert.assertTrue(url.contains("inventory"));
+        InventoryPage inventoryPage =
+                new InventoryPage(driver);
+
+        Assert.assertTrue(
+                inventoryPage.isInventoryPageDisplayed()
+        );
+
+        Assert.assertEquals(
+                inventoryPage.getPageTitle(),
+                "Products"
+        );
     }
 
 }
