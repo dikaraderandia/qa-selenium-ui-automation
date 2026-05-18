@@ -19,15 +19,22 @@ This project demonstrates UI automation testing using Selenium WebDriver with Ja
 ---
 
 ## 📁 Project Structure
-src
 └── test
 └── java
 └── com.dikara.ui
 ├── base
 │ └── BaseTestUI.java
+├── pages
+│ ├── LoginPage.java
+│ ├── InventoryPage.java
+│ └── CartPage.java
 ├── tests
 │ └── LoginTest.java
-└── pages (coming soon)
+├── listeners
+│ └── TestListener.java
+├── utils
+│ └── ScreenshotUtil.java
+└── screenshots
 
 
 ---
@@ -35,10 +42,17 @@ src
 ## 🧪 Features
 
 - Automated UI testing using Selenium WebDriver
-- Cross-browser setup with WebDriverManager
-- Test execution with TestNG
-- Clean test structure with reusable base class
-- Ready for Page Object Model (POM) implementation
+- Implemented Page Object Model (POM) for better maintainability and reusable page actions
+- Automated end-to-end user scenarios including:
+    - Login
+    - Negative login validation
+    - Add-to-cart functionality
+- Applied Explicit Wait for better test stability and synchronization
+- Implemented data-driven testing using TestNG DataProvider
+- Automated screenshot capture on test failure using TestNG Listener
+- UI validation using assertions and dynamic element handling
+- Cross-browser setup using WebDriverManager
+- Clean and scalable test structure
 
 ---
 
@@ -75,29 +89,37 @@ Or run directly from TestNG in your IDE.
 
 Login test using https://www.saucedemo.com:
 
-- Input username and password
-- Click login button
-- Validate successful login
-
+- Successful login validation
+- Invalid login validation
+- Add product to cart
+- Multi-page navigation validation
+- Data-driven login testing
+- Screenshot capture on failed test execution
 ---
 
 ## 🧠 Best Practices Applied
 
-- Separation of test setup using BaseTest class
-- Avoid hardcoded drivers using WebDriverManager
-- Clean locator usage (prefer ID over XPath)
-- Scalable structure for future enhancements
+- Separation of concerns using BaseTest and Page Object Model
+- Reusable page methods for better maintainability
+- Explicit Wait implementation instead of Thread.sleep
+- Stable locator strategy (ID and CSS Selector prioritization)
+- Data-driven testing with TestNG DataProvider
+- Failure handling using TestNG Listener and screenshot utility
+- Modular and scalable automation framework structure
 
 ---
 
 ## 🔥 Roadmap
 
-- [ ] Page Object Model (POM)
-- [ ] Explicit Wait implementation
-- [ ] Negative test scenarios
-- [ ] Data-driven testing
+- [x] Page Object Model (POM)
+- [x] Explicit Wait implementation
+- [x] Negative test scenarios
+- [x] Data-driven testing
+- [x] Screenshot On Failure
 - [ ] Test reporting (Allure)
+- [ ] Parallel test execution
 - [ ] CI/CD integration
+- [ ] Cross-browser execution
 
 ---
 
