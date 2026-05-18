@@ -9,14 +9,16 @@ import com.dikara.ui.pages.LoginPage;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+@Listeners(com.dikara.ui.listeners.TestListener.class)
 public class LoginTest extends BaseTestUI {
     @Test
     public void loginSuccess(){
         LoginPage loginPage = new LoginPage(driver, wait);
 
-        loginPage.login("standard_user", "secret_sauce");
+        loginPage.login("standard_user", "secrhhet_sauce");
 
         InventoryPage inventoryPage =
                 new InventoryPage(driver, wait);

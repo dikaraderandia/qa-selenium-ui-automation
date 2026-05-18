@@ -16,10 +16,7 @@ public class InventoryPage {
 
     }
 
-
-
     //LOCATOR
-
     private By inventoryContainer = By.id("inventory_container");
     private By inventoryTitle = By.className("title");
 

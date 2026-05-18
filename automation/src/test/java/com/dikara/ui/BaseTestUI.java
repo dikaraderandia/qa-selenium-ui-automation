@@ -12,6 +12,10 @@ import java.time.Duration;
 
 public class BaseTestUI {
 
+    public WebDriver getDriver() {
+        return driver;
+    }
+
     protected WebDriver driver;
     protected WebDriverWait wait;
 
